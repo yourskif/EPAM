@@ -8,7 +8,7 @@
         <CodeAnalysisTreatWarningsAsErrors>false</CodeAnalysisTreatWarningsAsErrors>
         <GenerateDocumentationFile>false</GenerateDocumentationFile>
         <OutputType>Exe</OutputType>
-        <NoWarn>CS8604,CA2208</NoWarn>
+        <NoWarn>CS8604,CA2208,S3928</NoWarn>
     </PropertyGroup>
     <ItemGroup>
         <AdditionalFiles Include="..\stylecop.json" Link="Properties\stylecop.json" />

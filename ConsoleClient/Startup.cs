@@ -19,7 +19,7 @@ public static class Startup
             .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
             .Build();
 
-        var logManager = LogManager.Setup()
+        _ = LogManager.Setup()
             .SetupExtensions(s => s.RegisterConfigSettings(configuration))
             .GetCurrentClassLogger();
 
@@ -28,12 +28,13 @@ public static class Startup
             .AddTransient<IConverter<Uri?>, UriConverter>()
             .AddTransient<ExportDataService<Uri>>()
             .UseExportDataServices(configuration, configuration["format"], configuration["mode"])
-            .AddLogging(loggingBuilder =>
-            {
-                loggingBuilder.ClearProviders();
-                loggingBuilder.SetMinimumLevel(Microsoft.Extensions.Logging.LogLevel.Trace);
-                loggingBuilder.AddNLog(configuration);
-            })
+            .AddLogging(
+                loggingBuilder =>
+                {
+                    loggingBuilder.ClearProviders();
+                    loggingBuilder.SetMinimumLevel(Microsoft.Extensions.Logging.LogLevel.Trace);
+                    loggingBuilder.AddNLog(configuration);
+                })
             .BuildServiceProvider();
     }
 }
