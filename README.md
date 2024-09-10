@@ -1,93 +1,370 @@
-# ependency-injection-uri-serialization
+# Dependency Injection. Uri's serialization.
 
+An advanced level task for practicing the dependency injection (DI) software design pattern in .NET.
 
+In this task you learn how to
+- use the "Stairway Pattern" when developing applications
+- create a .NET console app that uses dependency injection
+- write several interfaces and corresponding implementations
+- use service lifetime and scoping for DI
+- use the dependency injection along with configuration, logging.
 
-## Getting started
+Additionally, you will be able to repeat various .NET technologies for working with xml and json.
 
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
+Estimated time to complete the task: 6h.
 
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
+## Task Description
 
-## Add your files
+The type system that describe the logic of the export of the string representation of the data to the other format (see [Convertion](https://gitlab.com/autocode-tasks/net-6/dependency-injection-uri-serialization/-/blob/main/Conversion/IConverter.cs#L7), [Validation](https://gitlab.com/autocode-tasks/net-6/dependency-injection-uri-serialization/-/blob/main/Validation/IValidator.cs#L7), [Serialization](https://gitlab.com/autocode-tasks/net-6/dependency-injection-uri-serialization/-/blob/main/Serialization/IDataSerializer.cs#L17), [DataReceiving](https://gitlab.com/autocode-tasks/net-6/dependency-injection-uri-serialization/-/blob/main/DataReceiving/IDataReceiver.cs#L8), [ExportDataService](https://gitlab.com/autocode-tasks/net-6/dependency-injection-uri-serialization/-/blob/main/Conversion/IConverter.cs#L7)) are present in solution.
+<details><summary>See scheme.</summary>
 
-- [ ] [Create](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#create-a-file) or [upload](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#upload-a-file) files
-- [ ] [Add files using the command line](https://docs.gitlab.com/ee/gitlab-basics/add-file.html#add-a-file-using-the-command-line) or push an existing Git repository with the following command:
+  ![](/Images/Architecture1.png)
 
-```
-cd existing_repo
-git remote add origin https://autocode.git.epam.com/dotnet-tasks/design-and-architecture/net8/ependency-injection-uri-serialization.git
-git branch -M main
-git push -uf origin main
-```
+</details>
 
-## Integrate with your tools
+Use this types to develop a type system
+  - to reveive as `IEnumerable<string>` data represented as strings that store the information about Uri's in the form `<scheme>://<host>/<path>?<query>`, where
+    - `path` may consist of segments of the form `segment1/segment2/.../segmentN`,
+    - `query` consist pairs of the form `key1=value1&...&keyK=valueK`.
+  - to convert string object to [Uri](https://docs.microsoft.com/en-us/dotnet/api/system.uri?view=net-6.0) object.
+  - to export `IEnumerable<Uri>` to XML and JSON formats.
 
-- [ ] [Set up project integrations](https://autocode.git.epam.com/dotnet-tasks/design-and-architecture/net8/ependency-injection-uri-serialization/-/settings/integrations)
+#### Task details.
+- In implementation the string receiver functionality consider getting data from both [text](https://gitlab.com/autocode-tasks/net-6/dependency-injection-uri-serialization/-/blob/main/TextFileReceiver/TextStreamReceiver.cs#L11) file and [memory](https://gitlab.com/autocode-tasks/net-6/dependency-injection-uri-serialization/-/blob/main/InMemoryReceiver/InMemoryDataReceiver.cs#L9).
+  <details><summary>See a scheme.</summary>
 
-## Collaborate with your team
+    ![](/Images/Architecture3.png)
 
-- [ ] [Invite team members and collaborators](https://docs.gitlab.com/ee/user/project/members/)
-- [ ] [Create a new merge request](https://docs.gitlab.com/ee/user/project/merge_requests/creating_merge_requests.html)
-- [ ] [Automatically close issues from merge requests](https://docs.gitlab.com/ee/user/project/issues/managing_issues.html#closing-issues-automatically)
-- [ ] [Enable merge request approvals](https://docs.gitlab.com/ee/user/project/merge_requests/approvals/)
-- [ ] [Set auto-merge](https://docs.gitlab.com/ee/user/project/merge_requests/merge_when_pipeline_succeeds.html)
+  </details>
+  <details>
+  <summary>See an example of string data.</summary>
 
-## Test and Deploy
+  ```
+  https://habrahabr.ru/company/it-grad/blog/341486/
+  http://www.example.com/customers/12345
+  http://www.example.com/customers/12345/orders/98765
+  https://qaevolution.ru/znakomstvo-s-testirovaniem-api/
+  http://
+  https://www.contoso.com/Home/Index.htm?q1=v1&q2=v2
+  http://aaa.com/temp?key=Foo&value=Bar&id=42
+  https://www.w3schools.com/html/default.asp
+  http://www.ninject.org/learn.html
+  https:.php
+  https://docs.microsoft.com/ru-ru/dotnet/csharp/programming-guide/concepts/linq/linq-to-xml-overview
+  docs.microsoft.com
+  microsoft.com/ru-ru/dotnet/csharp/programming-guide/concepts/l
+  https://docs.microsoft.com/ru-ru/dotnet/api/system.linq.queryable.where?view=netframework-4.8
+  https://docs.microsoft.com/en-us/dotnet/api/system.xml.serialization.xmlserializer?view=net-6.0
+  https://metanit.com/python/django/1.1.php
+  ```
+  </details>
 
-Use the built-in continuous integration in GitLab.
+- In implementation the serialization logic consider following .NET technologies:
+  - [XmlWrite](https://gitlab.com/autocode-tasks/net-6/dependency-injection-uri-serialization/-/blob/main/XmlWriter.Serialization/XmlWriterTechnology.cs#L12) class
+  - [XmlSerializer](https://gitlab.com/autocode-tasks/net-6/dependency-injection-uri-serialization/-/blob/main/XmlSerializer.Serialization/XmlSerializerTechnology.cs#L12) class
+  - [XML-DOM model](https://gitlab.com/autocode-tasks/net-6/dependency-injection-uri-serialization/-/blob/main/XmlDomWriter.Serialization/XmlDomTechnology.cs#L12)
+  - [X-DOM model](https://gitlab.com/autocode-tasks/net-6/dependency-injection-uri-serialization/-/blob/main/XDomWriter.Serialization/XDomTechnology.cs#L12)
+  - [JsonSerializer](https://gitlab.com/autocode-tasks/net-6/dependency-injection-uri-serialization/-/blob/main/JsonSerializer.Serialization/JsonSerializerTechnology.cs#L12) class.
 
-- [ ] [Get started with GitLab CI/CD](https://docs.gitlab.com/ee/ci/quick_start/index.html)
-- [ ] [Analyze your code for known vulnerabilities with Static Application Security Testing (SAST)](https://docs.gitlab.com/ee/user/application_security/sast/)
-- [ ] [Deploy to Kubernetes, Amazon EC2, or Amazon ECS using Auto Deploy](https://docs.gitlab.com/ee/topics/autodevops/requirements.html)
-- [ ] [Use pull-based deployments for improved Kubernetes management](https://docs.gitlab.com/ee/user/clusters/agent/)
-- [ ] [Set up protected environments](https://docs.gitlab.com/ee/ci/environments/protected_environments.html)
+  <details><summary>See a scheme.</summary>
 
-***
+    ![](/Images/Architecture2.png)
 
-# Editing this README
+  </details>
 
-When you're ready to make this README your own, just edit this file and use the handy template below (or feel free to structure it however you want - this is just a starting point!). Thanks to [makeareadme.com](https://www.makeareadme.com/) for this template.
+  <details>
+  <summary>See an example of XML format.</summary>
 
-## Suggestions for a good README
+  ```
+  <?xml version="1.0" encoding="utf-8"?>
+  <uriAdresses>
+      <uriAdress>
+          <scheme name="https" />
+          <host name="habrahabr.ru" />
+          <path>
+              <segment>company</segment>
+              <segment>it-grad</segment>
+              <segment>blog</segment>
+              <segment>341486</segment>
+          </path>
+      </uriAdress>
+      <uriAdress>
+          <scheme name="http" />
+          <host name="www.example.com" />
+          <path>
+              <segment>customers</segment>
+              <segment>12345</segment>
+          </path>
+      </uriAdress>
+      <uriAdress>
+          <scheme name="http" />
+          <host name="www.example.com" />
+          <path>
+              <segment>customers</segment>
+              <segment>12345</segment>
+              <segment>orders</segment>
+              <segment>98765</segment>
+          </path>
+      </uriAdress>
+      <uriAdress>
+          <scheme name="https" />
+          <host name="qaevolution.ru" />
+          <path>
+              <segment>znakomstvo-s-testirovaniem-api</segment>
+          </path>
+      </uriAdress>
+      <uriAdress>
+          <scheme name="https" />
+          <host name="www.contoso.com" />
+          <path>
+              <segment>Home</segment>
+              <segment>Index.htm</segment>
+          </path>
+          <query>
+              <parameter key="q1" value="v1" />
+              <parameter key="q2" value="v2" />
+          </query>
+      </uriAdress>
+      <uriAdress>
+          <scheme name="http" />
+          <host name="aaa.com" />
+          <path>
+              <segment>temp</segment>
+          </path>
+          <query>
+              <parameter key="key" value="Foo" />
+              <parameter key="value" value="Bar" />
+              <parameter key="id" value="42" />
+          </query>
+      </uriAdress>
+      <uriAdress>
+          <scheme name="https" />
+          <host name="www.w3schools.com" />
+          <path>
+              <segment>html</segment>
+              <segment>default.asp</segment>
+          </path>
+      </uriAdress>
+      <uriAdress>
+          <scheme name="http" />
+          <host name="www.ninject.org" />
+          <path>
+              <segment>learn.html</segment>
+          </path>
+      </uriAdress>
+      <uriAdress>
+          <scheme name="https" />
+          <host name="docs.microsoft.com" />
+          <path>
+              <segment>ru-ru</segment>
+              <segment>dotnet</segment>
+              <segment>csharp</segment>
+              <segment>programming-guide</segment>
+              <segment>concepts</segment>
+              <segment>linq</segment>
+              <segment>linq-to-xml-overview</segment>
+          </path>
+      </uriAdress>
+      <uriAdress>
+          <scheme name="https" />
+          <host name="docs.microsoft.com" />
+          <path>
+              <segment>ru-ru</segment>
+              <segment>dotnet</segment>
+              <segment>api</segment>
+              <segment>system.linq.queryable.where</segment>
+          </path>
+          <query>
+              <parameter key="view" value="netframework-4.8" />
+          </query>
+      </uriAdress>
+      <uriAdress>
+          <scheme name="https" />
+          <host name="docs.microsoft.com" />
+          <path>
+              <segment>en-us</segment>
+              <segment>dotnet</segment>
+              <segment>api</segment>
+              <segment>system.xml.serialization.xmlserializer</segment>
+          </path>
+          <query>
+              <parameter key="view" value="net-6.0" />
+          </query>
+      </uriAdress>
+      <uriAdress>
+          <scheme name="https" />
+          <host name="metanit.com" />
+          <path>
+              <segment>python</segment>
+              <segment>django</segment>
+              <segment>1.1.php</segment>
+          </path>
+      </uriAdress>
+  </uriAdresses>
+  ```
+  </details>
 
-Every project is different, so consider which of these sections apply to yours. The sections used in the template are suggestions for most open source projects. Also keep in mind that while a README can be too long and detailed, too long is better than too short. If you think your README is too long, consider utilizing another form of documentation rather than cutting out information.
+  <details>
+  <summary>See an example of JSON format.</summary>
 
-## Name
-Choose a self-explaining name for your project.
+  ```
+  [
+    {
+      "scheme": "https",
+      "host": "habrahabr.ru",
+      "path": [
+        "company",
+        "it-grad",
+        "blog",
+        "341486"
+      ]
+    },
+    {
+      "scheme": "http",
+      "host": "www.example.com",
+      "path": [
+        "customers",
+        "12345"
+      ]
+    },
+    {
+      "scheme": "http",
+      "host": "www.example.com",
+      "path": [
+        "customers",
+        "12345",
+        "orders",
+        "98765"
+      ]
+    },
+    {
+      "scheme": "https",
+      "host": "qaevolution.ru",
+      "path": [
+        "znakomstvo-s-testirovaniem-api"
+      ]
+    },
+    {
+      "scheme": "https",
+      "host": "www.contoso.com",
+      "path": [
+        "Home",
+        "Index.htm"
+      ],
+      "query": [
+        {
+          "key": "q1",
+          "value": "v1"
+        },
+        {
+          "key": "q2",
+          "value": "v2"
+        }
+      ]
+    },
+    {
+      "scheme": "http",
+      "host": "aaa.com",
+      "path": [
+        "temp"
+      ],
+      "query": [
+        {
+          "key": "key",
+          "value": "Foo"
+        },
+        {
+          "key": "value",
+          "value": "Bar"
+        },
+        {
+          "key": "id",
+          "value": "42"
+        }
+      ]
+    },
+    {
+      "scheme": "https",
+      "host": "www.w3schools.com",
+      "path": [
+        "html",
+        "default.asp"
+      ]
+    },
+    {
+      "scheme": "http",
+      "host": "www.ninject.org",
+      "path": [
+        "learn.html"
+      ]
+    },
+    {
+      "scheme": "https",
+      "host": "docs.microsoft.com",
+      "path": [
+        "ru-ru",
+        "dotnet",
+        "csharp",
+        "programming-guide",
+        "concepts",
+        "linq",
+        "linq-to-xml-overview"
+      ]
+    },
+    {
+      "scheme": "https",
+      "host": "docs.microsoft.com",
+      "path": [
+        "ru-ru",
+        "dotnet",
+        "api",
+        "system.linq.queryable.where"
+      ],
+      "query": [
+        {
+          "key": "view",
+          "value": "netframework-4.8"
+        }
+      ]
+    },
+    {
+      "scheme": "https",
+      "host": "docs.microsoft.com",
+      "path": [
+        "en-us",
+        "dotnet",
+        "api",
+        "system.xml.serialization.xmlserializer"
+      ],
+      "query": [
+        {
+          "key": "view",
+          "value": "net-6.0"
+        }
+      ]
+    },
+    {
+      "scheme": "https",
+      "host": "metanit.com",
+      "path": [
+        "python",
+        "django",
+        "1.1.php"
+      ]
+    }
+  ]
 
-## Description
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
+  ```
+  </details>
 
-## Badges
-On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
+- Strings that do not match the specified `<scheme>://<host>/<path>?<query>`-pattern are not converted to an object, respectively, for such strings, object serialization is not performed. Information about not valid string is logged. To log is used `NLog.Extensions.Logging` package.
+- All unit tests should be pass.
+- To demonstrate how it works with various receivers and serializers use console application.
+- To resolve dependencies use the `Microsoft.Extensions.DependencyInjection` package.
+- To configuration console application use `Microsoft.Extensions.Configuration` package.
 
-## Visuals
-Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
+## See also
 
-## Installation
-Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
-
-## Usage
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
-
-## Support
-Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
-
-## Roadmap
-If you have ideas for releases in the future, it is a good idea to list them in the README.
-
-## Contributing
-State if you are open to contributions and what your requirements are for accepting them.
-
-For people who want to make changes to your project, it's helpful to have some documentation on how to get started. Perhaps there is a script that they should run or some environment variables that they need to set. Make these steps explicit. These instructions could also be useful to your future self.
-
-You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser.
-
-## Authors and acknowledgment
-Show your appreciation to those who have contributed to the project.
-
-## License
-For open source projects, say how it is licensed.
-
-## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
+ - [Dependency injection in .NET](https://docs.microsoft.com/en-us/dotnet/core/extensions/dependency-injection)
+ - [Dependency injection guidelines](https://docs.microsoft.com/en-us/dotnet/core/extensions/dependency-injection-guidelines)
+ - [Using NLog in a .NET 5 Console Application with Dependency Injection and send logs to AWS CloudWatch](https://dev.to/satish/using-nlog-in-a-net-5-console-application-with-dependency-injection-52mm)
