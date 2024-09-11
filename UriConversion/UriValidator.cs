@@ -27,5 +27,5 @@ public class UriValidator : IValidator<string>
     public bool IsValid(string? obj)
     {
         throw new NotImplementedException();
-    }.
+    }
 }
