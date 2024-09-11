@@ -1,5 +1,4 @@
 ﻿using DataReceiving;
-// ReSharper disable All
 
 namespace InMemoryReceiver;
 
@@ -14,16 +13,11 @@ public class InMemoryDataReceiver : IDataReceiver
     /// <returns>Strings.</returns>
     public IEnumerable<string> Receive() => new[]
     {
-        "https://habrahabr.ru/company/it-grad/blog/341486/",
-        "http://www.example.com/customers/12345",
+        "https://habrahabr.ru/company/it-grad/blog/341486/", "http://www.example.com/customers/12345",
         "http://www.example.com/customers/12345/orders/98765",
-        "https://qaevolution.ru/znakomstvo-s-testirovaniem-api/",
-        "http://",
-        "https://www.contoso.com/Home/Index.htm?q1=v1&q2=v2",
-        "http://aaa.com/temp?key=Foo&value=Bar&id=42",
-        "https://www.w3schools.com/html/default.asp",
-        "http://www.ninject.org/learn.html",
-        "https:.php",
+        "https://qaevolution.ru/znakomstvo-s-testirovaniem-api/", "http://",
+        "https://www.contoso.com/Home/Index.htm?q1=v1&q2=v2", "http://aaa.com/temp?key=Foo&value=Bar&id=42",
+        "https://www.w3schools.com/html/default.asp", "http://www.ninject.org/learn.html", "https:.php",
         "https://docs.microsoft.com/ru-ru/dotnet/csharp/programming-guide/concepts/linq/linq-to-xml-overview",
         "docs.microsoft.com", "microsoft.com/ru-ru/dotnet/csharp/programming-guide/concepts/l",
         "https://docs.microsoft.com/ru-ru/dotnet/api/system.linq.queryable.where?view=netframework-4.8",

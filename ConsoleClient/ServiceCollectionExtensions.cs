@@ -47,7 +47,7 @@ internal static class ServiceCollectionExtensions
             "json" when mode == "inMemory" => services
                 .AddTransient<IDataReceiver>(service => new InMemoryDataReceiver())
                 .AddTransient<IDataSerializer<Uri>, JsonSerializerTechnology>(service => new JsonSerializerTechnology(jsonPath, service.GetRequiredService<ILogger<JsonSerializerTechnology>>())),
-            _ => throw new ArgumentException(nameof(format), format, null),
+            _ => throw new ArgumentException(nameof(format), format, null)
         };
     }
 }

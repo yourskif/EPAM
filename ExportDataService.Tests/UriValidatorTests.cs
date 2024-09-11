@@ -10,12 +10,12 @@ public class UriValidatorTests
     public void IsValidTests(string source, bool expected)
     {
         var validator = new UriValidator();
-        Assert.That(expected, Is.EqualTo(validator.IsValid(source)));
+        Assert.AreEqual(expected, validator.IsValid(source));
     }
 
     [Test]
     public void IsValid_Throw_ArgumentNullException_If_SourceString_Is_Null()
     {
-        _ = Assert.Throws<ArgumentNullException>(() => new UriValidator().IsValid(null));
+        Assert.Throws<ArgumentNullException>(() => new UriValidator().IsValid(null));
     }
 }

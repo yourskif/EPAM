@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using LogerExtensionDelegate;
+using Microsoft.Extensions.Logging;
 using Validation;
 
 namespace UriConversion;
@@ -26,5 +27,5 @@ public class UriValidator : IValidator<string>
     public bool IsValid(string? obj)
     {
         throw new NotImplementedException();
-    }
+    }.
 }

@@ -7,7 +7,7 @@
     <AnalysisMode>AllEnabledByDefault</AnalysisMode>
     <CodeAnalysisTreatWarningsAsErrors>false</CodeAnalysisTreatWarningsAsErrors>
     <GenerateDocumentationFile>false</GenerateDocumentationFile>
-    <NoWarn>S1104</NoWarn>
+    <NoWarn>S1104,CA1819,CA1815,CA1051,SA1401,CA2227,CA1002,SA1010,CA1034</NoWarn>
   </PropertyGroup>
   <ItemGroup>
     <AdditionalFiles Include="..\stylecop.json" Link="Properties\stylecop.json" />

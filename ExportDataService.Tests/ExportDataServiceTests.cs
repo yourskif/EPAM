@@ -20,7 +20,7 @@ public class ExportDataServiceTests
         Diff diff = DiffBuilder.Compare(expected).WithTest(actual)
             .CheckForSimilar()
             .Build();
-        Assert.That(diff.HasDifferences(), Is.False, diff.ToString());
+        Assert.IsFalse(diff.HasDifferences(), diff.ToString());
     }
 
     [TestCaseSource(typeof(TestCasesData), nameof(TestCasesData.TestCasesForJsonSerializers))]
@@ -32,6 +32,6 @@ public class ExportDataServiceTests
         var actual = readerActual.ReadToEnd();
         using var readerExpected = new StreamReader(resultPath);
         var expected = readerExpected.ReadToEnd();
-        Assert.That(actual, Is.EqualTo(expected).IgnoreCase);
+        StringAssert.AreEqualIgnoringCase(expected, actual);
     }
 }

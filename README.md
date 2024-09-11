@@ -1,13 +1,13 @@
-# Dependency Injection. Uri's serialization.
+# Dependency Injection. Uri serialization.
 
-An advanced level task for practicing the dependency injection (DI) software design pattern in .NET.
+A advanced level task for practicing the dependency injection (DI) software design pattern in .NET.
 
 In this task you learn how to
 - use the "Stairway Pattern" when developing applications
 - create a .NET console app that uses dependency injection
 - write several interfaces and corresponding implementations
 - use service lifetime and scoping for DI
-- use the dependency injection along with configuration, logging.
+- use the dependency injection along with configuration, logging. 
 
 Additionally, you will be able to repeat various .NET technologies for working with xml and json.
 
@@ -22,13 +22,13 @@ The type system that describe the logic of the export of the string representati
 
 </details>
 
-Use this types to develop a type system
-  - to reveive as `IEnumerable<string>` data represented as strings that store the information about Uri's in the form `<scheme>://<host>/<path>?<query>`, where
+Use this types to develop a type system 
+  - to reveive as `IEnumerable<string>` data represented as strings that store the information about Uri's in the form `<scheme>://<host>/<path>?<query>`, where   
     - `path` may consist of segments of the form `segment1/segment2/.../segmentN`,
     - `query` consist pairs of the form `key1=value1&...&keyK=valueK`.
   - to convert string object to [Uri](https://docs.microsoft.com/en-us/dotnet/api/system.uri?view=net-6.0) object.
   - to export `IEnumerable<Uri>` to XML and JSON formats.
-
+  
 #### Task details.
 - In implementation the string receiver functionality consider getting data from both [text](https://gitlab.com/autocode-tasks/net-6/dependency-injection-uri-serialization/-/blob/main/TextFileReceiver/TextStreamReceiver.cs#L11) file and [memory](https://gitlab.com/autocode-tasks/net-6/dependency-injection-uri-serialization/-/blob/main/InMemoryReceiver/InMemoryDataReceiver.cs#L9).
   <details><summary>See a scheme.</summary>
@@ -206,7 +206,7 @@ Use this types to develop a type system
 
   <details>
   <summary>See an example of JSON format.</summary>
-
+  
   ```
   [
     {
@@ -353,7 +353,7 @@ Use this types to develop a type system
       ]
     }
   ]
-
+  
   ```
   </details>
 

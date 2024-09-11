@@ -21,18 +21,18 @@ public class GenericExportDataServiceTests
     public void SetUp()
     {
         this.validatorMock = new Mock<IValidator<string>>();
-        _ = this.validatorMock.Setup(validator => validator.IsValid(It.IsAny<string>())).Returns(true);
+        this.validatorMock.Setup(validator => validator.IsValid(It.IsAny<string>())).Returns(true);
 
         this.receiverMock = new Mock<IDataReceiver>();
-        _ = this.receiverMock.Setup(receiver => receiver.Receive()).Returns(Enumerable.Repeat(It.IsAny<string>(), Count));
+        this.receiverMock.Setup(receiver => receiver.Receive()).Returns(Enumerable.Repeat(It.IsAny<string>(), Count));
 
         this.converterMock = new Mock<IConverter<It.IsAnyType>>();
-        _ = this.converterMock.Setup(converter => converter.Convert(It.IsAny<string>()))
+        this.converterMock.Setup(converter => converter.Convert(It.IsAny<string>()))
             .Callback<string?>(obj => this.validatorMock.Object.IsValid(obj))
             .Returns<string?>((obj) => new It.IsAnyType());
 
         this.serializerMock = new Mock<IDataSerializer<It.IsAnyType>>();
-        _ = this.serializerMock.Setup(serializer => serializer.Serialize(It.IsAny<IEnumerable<It.IsAnyType>?>()));
+        this.serializerMock.Setup(serializer => serializer.Serialize(It.IsAny<IEnumerable<It.IsAnyType>?>()));
     }
 
     [Test]

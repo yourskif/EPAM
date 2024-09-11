@@ -41,7 +41,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JsonSerializer.Serializatio
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UriSerializationHelper", "UriToSerializableObject\UriSerializationHelper.csproj", "{F8DAEC3B-1806-411F-BBEE-50EAD9FD225D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LoggerExtensionDelegate", "LoggerExtensionDelegate\LoggerExtensionDelegate.csproj", "{293B2A9F-1D7C-44F2-BBED-90482CDB29F6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LogerExtensionDelegate", "LogerExtensionDelegate\LogerExtensionDelegate.csproj", "{293B2A9F-1D7C-44F2-BBED-90482CDB29F6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

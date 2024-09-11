@@ -1,4 +1,5 @@
 ﻿using DataReceiving;
+using LogerExtensionDelegate;
 using Microsoft.Extensions.Logging;
 
 namespace TextFileReceiver;

@@ -1,10 +1,9 @@
 ﻿using Microsoft.Extensions.Logging;
 
-namespace LoggerExtensionDelegate;
-
-public static class LoggerExtension
+namespace LogerExtensionDelegate;
+public static class LogerExtension
 {
-    private static readonly Action<ILogger, string, Exception> FastLoggerMessageValue =
+    private static Action<ILogger, string, Exception> fastLoggerMessage =
         LoggerMessage.Define<string>(
             LogLevel.Information,
             eventId: new EventId(id: 1, name: "ERROR"),
@@ -14,7 +13,7 @@ public static class LoggerExtension
     {
         if (logger != null)
         {
-            FastLoggerMessageValue(logger, message, exception);
+            fastLoggerMessage(logger, message, exception);
         }
     }
 }

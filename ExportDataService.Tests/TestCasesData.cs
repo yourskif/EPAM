@@ -57,8 +57,7 @@ public static class TestCasesData
                 serviceCollection
                     .AddTransient<IDataReceiver>(_ => new TextStreamReceiver(SourceText))
                     .AddTransient<IDataSerializer<Uri>, XmlWriterTechnology>(
-                        _ => new XmlWriterTechnology(XmlActual)),
-                XmlActual,
+                        _ => new XmlWriterTechnology(XmlActual)), XmlActual,
                 XmlExpected);
             yield return new TestCaseData(
                 serviceCollection
@@ -83,8 +82,7 @@ public static class TestCasesData
                 serviceCollection
                     .AddTransient<IDataReceiver>(_ => new InMemoryDataReceiver())
                     .AddTransient<IDataSerializer<Uri>, XmlWriterTechnology>(
-                        _ => new XmlWriterTechnology(XmlActual)),
-                XmlActual,
+                        _ => new XmlWriterTechnology(XmlActual)), XmlActual,
                 XmlExpected);
         }
     }

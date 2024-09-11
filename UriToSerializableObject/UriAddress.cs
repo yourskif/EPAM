@@ -1,11 +1,18 @@
-﻿using System.Xml.Serialization;
+﻿using System.Collections.ObjectModel;
 using System.Text.Json.Serialization;
+using System.Xml.Serialization;
 
 namespace UriSerializationHelper;
 
 [XmlRoot("uriAdresses")]
 public class UriAddress
 {
+    [XmlElement("scheme")]
+    public InnerNamed AttrScheme;
+
+    [XmlElement("host")]
+    public InnerNamed AttrHost;
+
     [XmlIgnore]
     public string Scheme
     {
@@ -19,12 +26,6 @@ public class UriAddress
         get => this.AttrHost.Name;
         set => this.AttrHost.Name = value;
     }
-
-    [XmlElement("scheme")]
-    public InnerNamed AttrScheme = new();
-
-    [XmlElement("host")]
-    public InnerNamed AttrHost = new();
 
     [XmlArrayItem("segment")]
     public List<string> Path { get; set; } = null!;

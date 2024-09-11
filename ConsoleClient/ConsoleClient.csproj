@@ -19,7 +19,7 @@
         <PackageReference Include="Microsoft.Extensions.FileProviders.Abstractions" Version="9.0.0-preview.7.24405.7" />
         <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0" />
         <PackageReference Include="NLog.Extensions.Logging" Version="5.3.12" />
-        <PackageReference Include="StyleCop.Analyzers" Version="1.2.0-beta.556">
+        <PackageReference Include="StyleCop.Analyzers" Version="1.1.118">
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
             <PrivateAssets>all</PrivateAssets>
         </PackageReference>
