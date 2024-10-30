@@ -29,60 +29,80 @@ public static class TestCasesData
     {
         get
         {
-            var serviceCollection = new ServiceCollection()
-                .AddTransient<IValidator<string>, UriValidator>()
-                .AddTransient<IConverter<Uri?>, UriConverter>()
-                .AddTransient<ExportDataService<Uri>>();
-
             yield return new TestCaseData(
-                serviceCollection
+                new ServiceCollection()
+                    .AddTransient<IValidator<string>, UriValidator>()
+                    .AddTransient<IConverter<Uri?>, UriConverter>()
+                    .AddTransient<ExportDataService<Uri>>()
                     .AddTransient<IDataReceiver>(_ => new TextStreamReceiver(SourceText))
-                    .AddTransient<IDataSerializer<Uri>, XmlSerializerTechnology>(_ =>
-                        new XmlSerializerTechnology(XmlActual)),
+                    .AddTransient<IDataSerializer<Uri>, XmlSerializerTechnology>(
+                        _ =>
+                            new XmlSerializerTechnology(XmlActual)),
                 XmlActual,
                 XmlExpected);
             yield return new TestCaseData(
-                serviceCollection
+                new ServiceCollection()
+                    .AddTransient<IValidator<string>, UriValidator>()
+                    .AddTransient<IConverter<Uri?>, UriConverter>()
+                    .AddTransient<ExportDataService<Uri>>()
                     .AddTransient<IDataReceiver>(_ => new TextStreamReceiver(SourceText))
                     .AddTransient<IDataSerializer<Uri>, XDomTechnology>(_ => new XDomTechnology(XmlActual)),
                 XmlActual,
                 XmlExpected);
             yield return new TestCaseData(
-                serviceCollection
+                new ServiceCollection()
+                    .AddTransient<IValidator<string>, UriValidator>()
+                    .AddTransient<IConverter<Uri?>, UriConverter>()
+                    .AddTransient<ExportDataService<Uri>>()
                     .AddTransient<IDataReceiver>(_ => new TextStreamReceiver(SourceText))
                     .AddTransient<IDataSerializer<Uri>, XmlDomTechnology>(_ => new XmlDomTechnology(XmlActual)),
                 XmlActual,
                 XmlExpected);
             yield return new TestCaseData(
-                serviceCollection
+                new ServiceCollection()
+                    .AddTransient<IValidator<string>, UriValidator>()
+                    .AddTransient<IConverter<Uri?>, UriConverter>()
+                    .AddTransient<ExportDataService<Uri>>()
                     .AddTransient<IDataReceiver>(_ => new TextStreamReceiver(SourceText))
-                    .AddTransient<IDataSerializer<Uri>, XmlWriterTechnology>(
-                        _ => new XmlWriterTechnology(XmlActual)), XmlActual,
+                    .AddTransient<IDataSerializer<Uri>, XmlWriterTechnology>(_ => new XmlWriterTechnology(XmlActual)),
+                XmlActual,
                 XmlExpected);
             yield return new TestCaseData(
-                serviceCollection
+                new ServiceCollection()
+                    .AddTransient<IValidator<string>, UriValidator>()
+                    .AddTransient<IConverter<Uri?>, UriConverter>()
+                    .AddTransient<ExportDataService<Uri>>()
                     .AddTransient<IDataReceiver>(_ => new InMemoryDataReceiver())
                     .AddTransient<IDataSerializer<Uri>, XmlSerializerTechnology>(
                         _ => new XmlSerializerTechnology(XmlActual)),
                 XmlActual,
                 XmlExpected);
             yield return new TestCaseData(
-                serviceCollection
+                new ServiceCollection()
+                    .AddTransient<IValidator<string>, UriValidator>()
+                    .AddTransient<IConverter<Uri?>, UriConverter>()
+                    .AddTransient<ExportDataService<Uri>>()
                     .AddTransient<IDataReceiver>(_ => new InMemoryDataReceiver())
                     .AddTransient<IDataSerializer<Uri>, XDomTechnology>(_ => new XDomTechnology(XmlActual)),
                 XmlActual,
                 XmlExpected);
             yield return new TestCaseData(
-                serviceCollection
+                new ServiceCollection()
+                    .AddTransient<IValidator<string>, UriValidator>()
+                    .AddTransient<IConverter<Uri?>, UriConverter>()
+                    .AddTransient<ExportDataService<Uri>>()
                     .AddTransient<IDataReceiver>(_ => new InMemoryDataReceiver())
                     .AddTransient<IDataSerializer<Uri>, XmlDomTechnology>(_ => new XmlDomTechnology(XmlActual)),
                 XmlActual,
                 XmlExpected);
             yield return new TestCaseData(
-                serviceCollection
+                new ServiceCollection()
+                    .AddTransient<IValidator<string>, UriValidator>()
+                    .AddTransient<IConverter<Uri?>, UriConverter>()
+                    .AddTransient<ExportDataService<Uri>>()
                     .AddTransient<IDataReceiver>(_ => new InMemoryDataReceiver())
-                    .AddTransient<IDataSerializer<Uri>, XmlWriterTechnology>(
-                        _ => new XmlWriterTechnology(XmlActual)), XmlActual,
+                    .AddTransient<IDataSerializer<Uri>, XmlWriterTechnology>(_ => new XmlWriterTechnology(XmlActual)),
+                XmlActual,
                 XmlExpected);
         }
     }
@@ -91,23 +111,26 @@ public static class TestCasesData
     {
         get
         {
-            var serviceCollection = new ServiceCollection()
-                .AddTransient<IValidator<string>, UriValidator>()
-                .AddTransient<IConverter<Uri?>, UriConverter>()
-                .AddTransient<ExportDataService<Uri>>();
-
             yield return new TestCaseData(
-                serviceCollection
+                new ServiceCollection()
+                    .AddTransient<IValidator<string>, UriValidator>()
+                    .AddTransient<IConverter<Uri?>, UriConverter>()
+                    .AddTransient<ExportDataService<Uri>>()
                     .AddTransient<IDataReceiver>(_ => new TextStreamReceiver(SourceText))
-                    .AddTransient<IDataSerializer<Uri>, JsonSerializerTechnology>(_ =>
-                        new JsonSerializerTechnology(JsonActual)),
+                    .AddTransient<IDataSerializer<Uri>, JsonSerializerTechnology>(
+                        _ =>
+                            new JsonSerializerTechnology(JsonActual)),
                 JsonActual,
                 JsonExpected);
             yield return new TestCaseData(
-                serviceCollection
+                new ServiceCollection()
+                    .AddTransient<IValidator<string>, UriValidator>()
+                    .AddTransient<IConverter<Uri?>, UriConverter>()
+                    .AddTransient<ExportDataService<Uri>>()
                     .AddTransient<IDataReceiver>(_ => new InMemoryDataReceiver())
-                    .AddTransient<IDataSerializer<Uri>, JsonSerializerTechnology>(_ =>
-                        new JsonSerializerTechnology(JsonActual)),
+                    .AddTransient<IDataSerializer<Uri>, JsonSerializerTechnology>(
+                        _ =>
+                            new JsonSerializerTechnology(JsonActual)),
                 JsonActual,
                 JsonExpected);
         }
@@ -127,11 +150,17 @@ public static class TestCasesData
             yield return new TestCaseData("https://www.w3schools.com/html/default.asp", true);
             yield return new TestCaseData("http://www.ninject.org/learn.html", true);
             yield return new TestCaseData("https:.php", false);
-            yield return new TestCaseData("https://docs.microsoft.com/ru-ru/dotnet/csharp/programming-guide/concepts/linq/linq-to-xml-overview", true);
+            yield return new TestCaseData(
+                "https://docs.microsoft.com/ru-ru/dotnet/csharp/programming-guide/concepts/linq/linq-to-xml-overview",
+                true);
             yield return new TestCaseData("docs.microsoft.com", false);
             yield return new TestCaseData("microsoft.com/ru-ru/dotnet/csharp/programming-guide/concepts/l", false);
-            yield return new TestCaseData("https://docs.microsoft.com/ru-ru/dotnet/api/system.linq.queryable.where?view=netframework-4.8", true);
-            yield return new TestCaseData("https://docs.microsoft.com/en-us/dotnet/api/system.xml.serialization.xmlserializer?view=net-6.0", true);
+            yield return new TestCaseData(
+                "https://docs.microsoft.com/ru-ru/dotnet/api/system.linq.queryable.where?view=netframework-4.8",
+                true);
+            yield return new TestCaseData(
+                "https://docs.microsoft.com/en-us/dotnet/api/system.xml.serialization.xmlserializer?view=net-6.0",
+                true);
             yield return new TestCaseData("https://metanit.com/python/django/1.1.php", true);
         }
     }
