@@ -3,7 +3,7 @@
 A advanced level task for practicing the dependency injection (DI) software design pattern in .NET.
 
 In this task you learn how to
-- use the "Stairway Pattern" when developing applications
+- use the "[Stairway Pattern](https://makingloops.com/the-stairway-pattern/)" to decouple your projects
 - create a .NET console app that uses dependency injection
 - write several interfaces and corresponding implementations
 - use service lifetime and scoping for DI
