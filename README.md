@@ -77,8 +77,8 @@ Use this types to develop a type system
 
   ```
   <?xml version="1.0" encoding="utf-8"?>
-  <uriAdresses>
-      <uriAdress>
+  <uriAddresses>
+      <uriAddress>
           <scheme name="https" />
           <host name="habrahabr.ru" />
           <path>
@@ -87,16 +87,16 @@ Use this types to develop a type system
               <segment>blog</segment>
               <segment>341486</segment>
           </path>
-      </uriAdress>
-      <uriAdress>
+      </uriAddress>
+      <uriAddress>
           <scheme name="http" />
           <host name="www.example.com" />
           <path>
               <segment>customers</segment>
               <segment>12345</segment>
           </path>
-      </uriAdress>
-      <uriAdress>
+      </uriAddress>
+      <uriAddress>
           <scheme name="http" />
           <host name="www.example.com" />
           <path>
@@ -105,15 +105,15 @@ Use this types to develop a type system
               <segment>orders</segment>
               <segment>98765</segment>
           </path>
-      </uriAdress>
-      <uriAdress>
+      </uriAddress>
+      <uriAddress>
           <scheme name="https" />
           <host name="qaevolution.ru" />
           <path>
               <segment>znakomstvo-s-testirovaniem-api</segment>
           </path>
-      </uriAdress>
-      <uriAdress>
+      </uriAddress>
+      <uriAddress>
           <scheme name="https" />
           <host name="www.contoso.com" />
           <path>
@@ -124,8 +124,8 @@ Use this types to develop a type system
               <parameter key="q1" value="v1" />
               <parameter key="q2" value="v2" />
           </query>
-      </uriAdress>
-      <uriAdress>
+      </uriAddress>
+      <uriAddress>
           <scheme name="http" />
           <host name="aaa.com" />
           <path>
@@ -136,23 +136,23 @@ Use this types to develop a type system
               <parameter key="value" value="Bar" />
               <parameter key="id" value="42" />
           </query>
-      </uriAdress>
-      <uriAdress>
+      </uriAddress>
+      <uriAddress>
           <scheme name="https" />
           <host name="www.w3schools.com" />
           <path>
               <segment>html</segment>
               <segment>default.asp</segment>
           </path>
-      </uriAdress>
-      <uriAdress>
+      </uriAddress>
+      <uriAddress>
           <scheme name="http" />
           <host name="www.ninject.org" />
           <path>
               <segment>learn.html</segment>
           </path>
-      </uriAdress>
-      <uriAdress>
+      </uriAddress>
+      <uriAddress>
           <scheme name="https" />
           <host name="docs.microsoft.com" />
           <path>
@@ -164,8 +164,8 @@ Use this types to develop a type system
               <segment>linq</segment>
               <segment>linq-to-xml-overview</segment>
           </path>
-      </uriAdress>
-      <uriAdress>
+      </uriAddress>
+      <uriAddress>
           <scheme name="https" />
           <host name="docs.microsoft.com" />
           <path>
@@ -177,8 +177,8 @@ Use this types to develop a type system
           <query>
               <parameter key="view" value="netframework-4.8" />
           </query>
-      </uriAdress>
-      <uriAdress>
+      </uriAddress>
+      <uriAddress>
           <scheme name="https" />
           <host name="docs.microsoft.com" />
           <path>
@@ -190,8 +190,8 @@ Use this types to develop a type system
           <query>
               <parameter key="view" value="net-6.0" />
           </query>
-      </uriAdress>
-      <uriAdress>
+      </uriAddress>
+      <uriAddress>
           <scheme name="https" />
           <host name="metanit.com" />
           <path>
@@ -199,8 +199,8 @@ Use this types to develop a type system
               <segment>django</segment>
               <segment>1.1.php</segment>
           </path>
-      </uriAdress>
-  </uriAdresses>
+      </uriAddress>
+  </uriAddresses>
   ```
   </details>
 
