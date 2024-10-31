@@ -1,33 +1,36 @@
-# Dependency Injection. Uri serialization.
+# Dependency Injection. Uri Serialization.
 
-A advanced level task for practicing the dependency injection (DI) software design pattern in .NET.
+An advanced-level task for practicing the dependency injection (DI) software approach in .NET.
 
-In this task you learn how to
-- use the "[Stairway Pattern](https://makingloops.com/the-stairway-pattern/)" to decouple your projects
-- create a .NET console app that uses dependency injection
-- write several interfaces and corresponding implementations
-- use service lifetime and scoping for DI
-- use the dependency injection along with configuration, logging. 
+In this task, you will learn how to:
+- Utilize the "[Stairway Pattern](https://makingloops.com/the-stairway-pattern/)" to decouple your projects
+- Create a .NET console application that implements dependency injection
+- Write various interfaces along with their corresponding implementations
+- Manage service lifetimes and scoping for dependency injection
+- Use dependency injection for configuration and logging purposes.
 
-Additionally, you will be able to repeat various .NET technologies for working with xml and json.
+Additionally, you can repeat various .NET technologies when working with XML and JSON.
 
 Estimated time to complete the task: 6h.
 
 ## Task Description
 
-The type system that describe the logic of the export of the string representation of the data to the other format (see [Convertion](https://gitlab.com/autocode-tasks/net-6/dependency-injection-uri-serialization/-/blob/main/Conversion/IConverter.cs#L7), [Validation](https://gitlab.com/autocode-tasks/net-6/dependency-injection-uri-serialization/-/blob/main/Validation/IValidator.cs#L7), [Serialization](https://gitlab.com/autocode-tasks/net-6/dependency-injection-uri-serialization/-/blob/main/Serialization/IDataSerializer.cs#L17), [DataReceiving](https://gitlab.com/autocode-tasks/net-6/dependency-injection-uri-serialization/-/blob/main/DataReceiving/IDataReceiver.cs#L8), [ExportDataService](https://gitlab.com/autocode-tasks/net-6/dependency-injection-uri-serialization/-/blob/main/Conversion/IConverter.cs#L7)) are present in solution.
+The type system that describes the logic of the export of the string representation of the data to the other format (see [Convertion](https://gitlab.com/autocode-tasks/net-6/dependency-injection-uri-serialization/-/blob/main/Conversion/IConverter.cs#L7), [Validation](https://gitlab.com/autocode-tasks/net-6/dependency-injection-uri-serialization/-/blob/main/Validation/IValidator.cs#L7), [Serialization](https://gitlab.com/autocode-tasks/net-6/dependency-injection-uri-serialization/-/blob/main/Serialization/IDataSerializer.cs#L17), [DataReceiving](https://gitlab.com/autocode-tasks/net-6/dependency-injection-uri-serialization/-/blob/main/DataReceiving/IDataReceiver.cs#L8), [ExportDataService](https://gitlab.com/autocode-tasks/net-6/dependency-injection-uri-serialization/-/blob/main/Conversion/IConverter.cs#L7)) are present in solution.
 <details><summary>See scheme.</summary>
 
   ![](/Images/Architecture1.png)
 
 </details>
 
-Use this types to develop a type system 
-  - to reveive as `IEnumerable<string>` data represented as strings that store the information about Uri's in the form `<scheme>://<host>/<path>?<query>`, where   
-    - `path` may consist of segments of the form `segment1/segment2/.../segmentN`,
-    - `query` consist pairs of the form `key1=value1&...&keyK=valueK`.
-  - to convert string object to [Uri](https://docs.microsoft.com/en-us/dotnet/api/system.uri?view=net-6.0) object.
-  - to export `IEnumerable<Uri>` to XML and JSON formats.
+Develop a type system that accomplishes the following:
+
+- Receive data as `IEnumerable<string>` that represents URIs in the format `<scheme>://<host>/<path>?<query`, where:
+  - The `path` may consist of segments in the form `segment1/segment2/.../segmentN`.
+  - The `query` consists of pairs in the form `key1=value1&key2=value2&...&keyK=valueK`.
+
+- Convert the string representation of a URI into a [Uri](https://docs.microsoft.com/en-us/dotnet/api/system.uri?view=net-6.0) object.
+
+- Export the `IEnumerable<Uri>` to XML and JSON formats.
   
 #### Task details.
 - In implementation the string receiver functionality consider getting data from both [text](https://gitlab.com/autocode-tasks/net-6/dependency-injection-uri-serialization/-/blob/main/TextFileReceiver/TextStreamReceiver.cs#L11) file and [memory](https://gitlab.com/autocode-tasks/net-6/dependency-injection-uri-serialization/-/blob/main/InMemoryReceiver/InMemoryDataReceiver.cs#L9).
@@ -59,7 +62,7 @@ Use this types to develop a type system
   ```
   </details>
 
-- In implementation the serialization logic consider following .NET technologies:
+- In the implementation of the serialization logic, consider following the .NET technologies:
   - [XmlWrite](https://gitlab.com/autocode-tasks/net-6/dependency-injection-uri-serialization/-/blob/main/XmlWriter.Serialization/XmlWriterTechnology.cs#L12) class
   - [XmlSerializer](https://gitlab.com/autocode-tasks/net-6/dependency-injection-uri-serialization/-/blob/main/XmlSerializer.Serialization/XmlSerializerTechnology.cs#L12) class
   - [XML-DOM model](https://gitlab.com/autocode-tasks/net-6/dependency-injection-uri-serialization/-/blob/main/XmlDomWriter.Serialization/XmlDomTechnology.cs#L12)
@@ -357,11 +360,11 @@ Use this types to develop a type system
   ```
   </details>
 
-- Strings that do not match the specified `<scheme>://<host>/<path>?<query>`-pattern are not converted to an object, respectively, for such strings, object serialization is not performed. Information about not valid string is logged. To log is used `NLog.Extensions.Logging` package.
-- All unit tests should be pass.
-- To demonstrate how it works with various receivers and serializers use console application.
-- To resolve dependencies use the `Microsoft.Extensions.DependencyInjection` package.
-- To configuration console application use `Microsoft.Extensions.Configuration` package.
+- Strings that do not match the specified `<scheme>://<host>/<path>?<query>` pattern will not be converted into an object. Consequently, object serialization will not be performed for such strings, and information about invalid strings will be logged. The `NLog.Extensions.Logging` package is used for logging.
+- All unit tests must pass.
+- To demonstrate the functionality with various receivers and serializers, a console application should be used.
+- For resolving dependencies, utilize the `Microsoft.Extensions.DependencyInjection` package.
+- Use the `Microsoft.Extensions.Configuration` package to configure the console application.
 
 ## See also
 
