@@ -63,11 +63,11 @@ Develop a type system that accomplishes the following:
   </details>
 
 - In the implementation of the serialization logic, consider following the .NET technologies:
-  - [XmlWrite](https://gitlab.com/autocode-tasks/net-6/dependency-injection-uri-serialization/-/blob/main/XmlWriter.Serialization/XmlWriterTechnology.cs#L12) class
-  - [XmlSerializer](https://gitlab.com/autocode-tasks/net-6/dependency-injection-uri-serialization/-/blob/main/XmlSerializer.Serialization/XmlSerializerTechnology.cs#L12) class
-  - [XML-DOM model](https://gitlab.com/autocode-tasks/net-6/dependency-injection-uri-serialization/-/blob/main/XmlDomWriter.Serialization/XmlDomTechnology.cs#L12)
-  - [X-DOM model](https://gitlab.com/autocode-tasks/net-6/dependency-injection-uri-serialization/-/blob/main/XDomWriter.Serialization/XDomTechnology.cs#L12)
-  - [JsonSerializer](https://gitlab.com/autocode-tasks/net-6/dependency-injection-uri-serialization/-/blob/main/JsonSerializer.Serialization/JsonSerializerTechnology.cs#L12) class.
+  - [XmlWriter](https://docs.microsoft.com/en-us/dotnet/api/system.xml.xmlwriter?view=net-6.0) class, [put solution here](/XmlWriter.Serialization/XmlWriterTechnology.cs#L12)
+  - [XmlSerializer](https://docs.microsoft.com/en-us/dotnet/api/system.xml.serialization.xmlserializer?view=net-6.0) class, [put solution here](/XmlSerializer.Serialization/XmlSerializerTechnology.cs#L12)
+  - [XML-DOM model](https://docs.microsoft.com/en-us/dotnet/api/system.xml?view=net-6.0), [put solution here](/XmlDomWriter.Serialization/XmlDomTechnology.cs#L12)
+  - [X-DOM model](https://docs.microsoft.com/en-us/dotnet/api/system.xml.linq?view=net-6.0), [put solution here](/XDomWriter.Serialization/XDomTechnology.cs#L12)
+  - [JsonSerializer](https://docs.microsoft.com/en-us/dotnet/api/system.text.json.jsonserializer?view=net-6.0) class, [put solution here](/JsonSerializer.Serialization/JsonSerializerTechnology.cs#L12).
 
   <details><summary>See a scheme.</summary>
 
