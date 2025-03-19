@@ -63,11 +63,11 @@ Develop a type system that accomplishes the following:
   </details>
 
 - In the implementation of the serialization logic, consider following the .NET technologies:
-  - [XmlWriter](https://docs.microsoft.com/en-us/dotnet/api/system.xml.xmlwriter?view=net-6.0) class, [put solution here](/XmlWriter.Serialization/XmlWriterTechnology.cs#L12)
-  - [XmlSerializer](https://docs.microsoft.com/en-us/dotnet/api/system.xml.serialization.xmlserializer?view=net-6.0) class, [put solution here](/XmlSerializer.Serialization/XmlSerializerTechnology.cs#L12)
-  - [XML-DOM model](https://docs.microsoft.com/en-us/dotnet/api/system.xml?view=net-6.0), [put solution here](/XmlDomWriter.Serialization/XmlDomTechnology.cs#L12)
-  - [X-DOM model](https://docs.microsoft.com/en-us/dotnet/api/system.xml.linq?view=net-6.0), [put solution here](/XDomWriter.Serialization/XDomTechnology.cs#L14)
-  - [JsonSerializer](https://docs.microsoft.com/en-us/dotnet/api/system.text.json.jsonserializer?view=net-6.0) class, [put solution here](/JsonSerializer.Serialization/JsonSerializerTechnology.cs#L13).
+  - [XmlWriter](https://docs.microsoft.com/en-us/dotnet/api/system.xml.xmlwriter) class, put solution [here](/XmlWriter.Serialization/XmlWriterTechnology.cs#L13)
+  - [XmlSerializer](https://docs.microsoft.com/en-us/dotnet/api/system.xml.serialization.xmlserializer) class, put solution [here](/XmlSerializer.Serialization/XmlSerializerTechnology.cs#L14)
+  - [XML-DOM model](https://docs.microsoft.com/en-us/dotnet/api/system.xml), put solution [here](/XmlDomWriter.Serialization/XmlDomTechnology.cs#L13)
+  - [X-DOM model](https://docs.microsoft.com/en-us/dotnet/api/system.xml.linq), put solution [here](/XDomWriter.Serialization/XDomTechnology.cs#L14)
+  - [JsonSerializer](https://docs.microsoft.com/en-us/dotnet/api/system.text.json.jsonserializer) class, put solution [here](/JsonSerializer.Serialization/JsonSerializerTechnology.cs#L13).
 
   <details><summary>See a scheme.</summary>
 
